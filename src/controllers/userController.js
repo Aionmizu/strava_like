@@ -1,5 +1,6 @@
 const UserService = require('../services/userService')
 
+
 class UserController{
     async getAllUsers(req,res){
         try{
@@ -23,7 +24,7 @@ class UserController{
         try{
             const user = await UserService.createUser(req.body);
             res.json(user);
-        }catch {
+        }catch(err) {
             res.status(500).json({message: err.message});
         }
     }
